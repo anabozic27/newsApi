@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>News.Api</name>
+    </assembly>
+    <members>
+        <member name="M:News.Api.Controllers.ArticleController.GetAll">
+            <summary>
+            Method for retrieving all articles
+            </summary>
+            <returns>List of articles</returns>
+        </member>
+        <member name="M:News.Api.Controllers.ArticleController.GetByCategoryId(System.Int32)">
+            <summary>
+            Method for retrieving articles by their category
+            </summary>
+            <param name="categoryId"></param>
+            <returns>List of articles</returns>
+        </member>
+        <member name="M:News.Api.Controllers.ArticleController.GetByUserId(System.Int32)">
+            <summary>
+            Method for retrieving articles of user
+            </summary>
+            <param name="userId"></param>
+            <returns>List of articles</returns>
+        </member>
+        <member name="M:News.Api.Controllers.ArticleController.GetById(System.Int32)">
+            <summary>
+            Method for retrieving article data by id
+            </summary>
+            <param name="id"></param>
+            <returns>Model with article data</returns>
+        </member>
+        <member name="M:News.Api.Controllers.ArticleController.Save(News.BL.Models.Request.ArticleModel,System.String)">
+            <summary>
+            Method for inserting or updating article
+            </summary>
+            <remarks>
+                POST / ArticleModel
+                {
+                    "id": 0,
+                    "title": "test",
+                    "text": "test",
+                    "categoryId": 1,
+                    "createByUserId": 1,
+                    "createdDate": "2022-01-12",
+                    "modifiedByUserId": null,
+                    "modifiedDate": null
+                }
+            </remarks>
+            <param name="model"></param>
+            <param name="authorization"></param>
+            <returns>Id of saved article</returns>
+        </member>
+        <member name="M:News.Api.Controllers.ArticleController.Delete(System.Int32)">
+            <summary>
+            Method for deleting article
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:News.Api.Controllers.BaseApiController.CreateToken(System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Method for creating token
+            </summary>
+            <param name="userId"></param>
+            <param name="username"></param>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:News.Api.Controllers.CategoryController.GetAll">
+            <summary>
+            Method for retrieving list of all categories
+            </summary>
+            <returns>List of categories</returns>
+        </member>
+        <member name="M:News.Api.Controllers.CategoryController.GetByParentCategoryId(System.Int32)">
+            <summary>
+            Method for retrieving list of categories by their parent category
+            </summary>
+            <param name="parentCategoryId"></param>
+            <returns>List of categories</returns>
+        </member>
+        <member name="M:News.Api.Controllers.CategoryController.GetUserCategoriesForArticleId(System.Int32)">
+            <summary>
+            Method for retrieving list of categories of user
+            </summary>
+            <param name="categoryId"></param>
+            <returns>List of categories</returns>
+        </member>
+        <member name="M:News.Api.Controllers.CategoryController.GetById(System.Int32)">
+            <summary>
+            Method for retrieving category data by id
+            </summary>
+            <param name="id"></param>
+            <returns>Model with category data</returns>
+        </member>
+        <member name="M:News.Api.Controllers.CategoryController.Save(News.BL.Models.Request.CategoryModel)">
+            <summary>
+            Method for inserting or updating category
+            </summary>
+            <remarks>
+                POST / CategoryModel
+                {
+                    "id": 0,
+                    "categoryName": "test",
+                    "parentCategoryId": null,
+                    "active": 1
+                }
+            </remarks>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:News.Api.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Method for deleting category
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:News.Api.Controllers.UserController.RegisterUser(News.BL.Models.Request.RegisterModel)">
+            <summary>
+            Method for registering new user
+            </summary>
+            <remarks>
+                POST / RegisterModel
+                {
+                  "id": 0,
+                  "firstName": "Test",
+                  "lastName": "Test",
+                  "username": "testni",
+                  "password": "Test123!",
+                  "confirmPassword": "Test123!",
+                  "articleCategoryId": 1
+                }
+            </remarks>
+            <param name="user">Object which contains all necessery information for registration</param>
+            <returns>Object which contains info about registered user like id, username, categoryId...</returns>
+        </member>
+        <member name="M:News.Api.Controllers.UserController.LoginUser(News.BL.Models.Request.LoginModel)">
+            <summary>
+            Method for user login
+            </summary>
+            <remarks>
+                POST /LoginModel
+                {
+                    "username": "test",
+                    "password": "Test123!"
+                }
+            </remarks>
+            <param name="user">Model which contains user credentials (username and password)</param>
+            <returns>Object with information about logged in user like id, name, token...</returns>
+        </member>
+        <member name="M:News.Api.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Method for deleting user (setting user not active)
+            </summary>
+            <param name="id"></param>
+            <returns>True or false</returns>
+        </member>
+    </members>
+</doc>
